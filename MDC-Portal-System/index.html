@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDC Grading System Portal - Mati Doctors College</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Facebook SDK Root -->
+    <div id="fb-root"></div>
+    
+    <div class="container">
+        <!-- Login Section -->
+        <div id="loginSection" class="login-section">
+            <div class="login-card">
+                <div class="logo-container">
+                    <img src="mati-doctors-college-logo.jpg" alt="Mati Doctors College Logo" class="logo-img">
+                    <h1>Mati Doctors College</h1>
+                    <p class="location">Mati City, Davao Oriental</p>
+                    <h2>Grading System Portal</h2>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="userType">Login As:</label>
+                        <select id="userType" required>
+                            <option value="">Select User Type</option>
+                            <option value="student">Student</option>
+                            <option value="admin">Administrator</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="userId">ID Number:</label>
+                        <input type="text" id="userId" placeholder="Enter your ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" placeholder="Enter password" required>
+                    </div>
+                    <div class="form-group remember-me">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember Me</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                
+                <div class="social-divider">
+                    <span>or login with</span>
+                </div>
+                
+                <div class="social-login">
+                    <button type="button" class="btn btn-facebook-icon" onclick="loginWithFacebook()" title="Login with Facebook">
+                        <svg class="fb-icon-large" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="auth-switch"> 
+                    <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register here</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Section -->
+        <div id="registerSection" class="login-section hidden">
+            <div class="login-card">
+                <div class="logo-container">
+                    <img src="mati-doctors-college-logo.jpg" alt="Mati Doctors College Logo" class="logo-img">
+                    <h1>Mati Doctors College</h1>
+                    <p class="location">Mati City, Davao Oriental</p>
+                    <h2>Student Registration</h2>
+                </div>
+                
+                <!-- Register Form -->
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="regStudentId">Student ID:</label>
+                        <input type="text" id="regStudentId" placeholder="STU-2024-XXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regFullName">Full Name:</label>
+                        <input type="text" id="regFullName" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regCourse">Course:</label>
+                        <select id="regCourse" required>
+                            <option value="">Select Course</option>
+                            <option value="BS Nursing">BS Nursing</option>
+                            <option value="BS Medical Technology">BS Medical Technology</option>
+                            <option value="BS Pharmacy">BS Pharmacy</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="regYear">Year Level:</label>
+                        <select id="regYear" required>
+                            <option value="">Select Year</option>
+                            <option value="1st Year">1st Year</option>
+                            <option value="2nd Year">2nd Year</option>
+                            <option value="3rd Year">3rd Year</option>
+                            <option value="4th Year">4th Year</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="regSection">Section:</label>
+                        <input type="text" id="regSection" placeholder="A" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password:</label>
+                        <input type="password" id="regPassword" placeholder="Create password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regConfirmPassword">Confirm Password:</label>
+                        <input type="password" id="regConfirmPassword" placeholder="Confirm password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+                
+                <div class="auth-switch">
+                    <p>Already have an account? <a href="#" onclick="showLoginForm()">Login here</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboardSection" class="dashboard-section hidden">
+
+        <!-- Data Privacy Consent Section -->
+        <div id="privacyConsentSection" class="privacy-section hidden">
+            <div class="privacy-card">
+                <div class="privacy-header">
+                    <h1>MDC Student Portal - Data Privacy Consent</h1>
+                </div>
+                <div class="privacy-content">
+                    <p class="welcome-text">Welcome to the Mati Doctors College (MDC) Student Portal. Before accessing your personalized dashboard, please review and consent to the following data privacy terms:</p>
+                    
+                    <div class="privacy-section-block">
+                        <h3>Purpose of Data Collection</h3>
+                        <p>By logging into this portal, you acknowledge that MDC collects and processes your personal information to:</p>
+                        <ul>
+                            <li>Manage your academic records.</li>
+                            <li>Provide essential student services.</li>
+                            <li>Communicate important updates and announcements.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="privacy-section-block">
+                        <h3>Data Privacy Commitment</h3>
+                        <p>MDC is committed to safeguarding your personal data in compliance with the <strong>Data Privacy Act of 2012 (Republic Act No. 10173)</strong>. This law protects individual personal information in information and communications systems in the government and the private sector, ensuring that personal data is secured and protected.</p>
+                        <p>Under the Data Privacy Act, you have the right to:</p>
+                        <ul>
+                            <li>Access your personal data.</li>
+                            <li>Correct inaccuracies in your information.</li>
+                            <li>Withdraw consent at any time, subject to legal limitations.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="privacy-notice">
+                        <p>By clicking "<strong>I Agree</strong>", you consent to the collection and processing of your personal data as described above. If you do not agree, please exit the portal.</p>
+                    </div>
+                    
+                    <div class="privacy-checkbox">
+                        <label>
+                            <input type="checkbox" id="privacyAgree">
+                            <span>I have read and agree to the Data Privacy terms</span>
+                        </label>
+                    </div>
+                    
+                    <div class="privacy-buttons">
+                        <button class="btn btn-exit" onclick="exitPortal()">Exit</button>
+                        <button class="btn btn-agree" id="continueBtn" onclick="acceptPrivacy()" disabled>Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboardMain" class="dashboard-section hidden">
+            <!-- Sidebar -->
+            <nav class="sidebar">
+                <div class="sidebar-logo">
+                    <img src="mati-doctors-college-logo.jpg" alt="MDC Logo" class="sidebar-logo-img">
+                </div>
+                <ul id="navMenu">
+                    <!-- Dynamic menu based on user type -->
+                </ul>
+            </nav>
+
+            <!-- Main Area -->
+            <div class="main-area">
+                <!-- Top Header -->
+                <header class="top-header">
+                    <div class="menu-toggle" id="menuToggle" onclick="toggleSidebar()">☰</div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search here">
+                    </div>
+                    <div class="header-right">
+                        <span id="welcomeUser">Welcome, User</span>
+                        <button id="logoutBtn" class="btn btn-logout">Logout</button>
+                    </div>
+                </header>
+
+                <!-- Content Area -->
+                <main class="main-content">
+                    <div id="contentArea">
+                        <!-- Dynamic content -->
+                        
+                        <!-- Grades Dashboard Section -->
+                        <div id="gradesDashboard" class="dashboard-page hidden">
+                            <div class="page-header">
+                                <h2>Grades Overview</h2>
+                                <p>Track student performance and grade statistics</p>
+                            </div>
+                            
+                            <!-- Stats Cards -->
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <div class="stat-icon">👨‍🎓</div>
+                                    <div class="stat-info">
+                                        <h3 id="totalStudents">5</h3>
+                                        <p>Total Students</p>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">📊</div>
+                                    <div class="stat-info">
+                                        <h3 id="gradeRecords">21</h3>
+                                        <p>Grade Records</p>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">📈</div>
+                                    <div class="stat-info">
+                                        <h3 id="avgGrade">87.38</h3>
+                                        <p>Average Grade</p>
+                                    </div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-icon">✅</div>
+                                    <div class="stat-info">
+                                        <h3 id="passRate">100%</h3>
+                                        <p>Pass Rate</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Grades Table -->
+                            <div class="table-container">
+                                <h3>All Grade Records</h3>
+                                <table id="gradesTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Student ID</th>
+                                            <th>Name</th>
+                                            <th>Code</th>
+                                            <th>Subject</th>
+                                            <th>Prelim</th>
+                                            <th>Midterm</th>
+                                            <th>Prefinal</th>
+                                            <th>Final</th>
+                                            <th>GPA</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="gradesTbody">
+                                        <!-- Rows populated by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Modal for adding/editing -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
