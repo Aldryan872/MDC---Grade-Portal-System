@@ -1,2 +1,2 @@
-# MDC---Grade-Portal-System
+gradeportal
 grade portal
